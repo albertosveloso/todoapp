@@ -5,11 +5,20 @@ import TodoList from './TodoList'
 
 export default class Todo extends Component {
 
+    constructor(props){
+        super(props)
+        this.handleAdd = this.handleAdd.bind(this) //bind do this para evitar this null
+    }
+
+    handleAdd(){
+        console.log(this)
+    }
+
     render(){
         return(
             <div>
                 <PageHeader name='Tarefas' small='Cadastro'/>
-                <TodoForm />
+                <TodoForm  handleAdd = {this.handleAdd}/>
                 <TodoList />
             </div>
         )
